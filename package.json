@@ -1,0 +1,31 @@
+{
+  "name": "cards",
+  "version": "1.0.0",
+  "description": "Card games for learning",
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/mccalltd/cards#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mccalltd/cards.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mccalltd/cards/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.15",
+    "copy-webpack-plugin": "^4.0.1",
+    "serve": "^3.2.10",
+    "source-map-loader": "^0.1.6",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.6",
+    "webpack": "^2.2.1"
+  }
+}
