@@ -6,4 +6,4 @@ app:
 	node_modules/.bin/webpack
 
 http:
-	node_modules/.bin/serve dist
+	node_modules/.bin/serve build

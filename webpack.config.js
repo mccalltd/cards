@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "app.js",
-    path: __dirname + "/out"
+    path: __dirname + "/build"
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -42,7 +42,7 @@ module.exports = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['out']),
+    new CleanWebpackPlugin(['build']),
     new CopyWebpackPlugin([
       { from: 'static/index.html' },
       { from: 'node_modules/react/dist/react.js', to: 'vendor/react.js' },
