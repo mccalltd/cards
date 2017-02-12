@@ -5,5 +5,8 @@ env:
 app:
 	node_modules/.bin/webpack
 
-http:
+web:
 	node_modules/.bin/serve build
+
+watch:
+	node_modules/.bin/webpack --watch
