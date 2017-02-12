@@ -1,11 +1,8 @@
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-
 module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "app.js",
-    path: __dirname + "/build"
+    path: __dirname + "/build/scripts"
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -39,14 +36,5 @@ module.exports = {
   externals: {
     "react": "React",
     "react-dom": "ReactDOM"
-  },
-
-  plugins: [
-    new CleanWebpackPlugin(['build']),
-    new CopyWebpackPlugin([
-      { from: 'static/index.html' },
-      { from: 'node_modules/react/dist/react.js', to: 'vendor/react.js' },
-      { from: 'node_modules/react-dom/dist/react-dom.js', to: 'vendor/react-dom.js' },
-    ])
-  ]
+  }
 };
