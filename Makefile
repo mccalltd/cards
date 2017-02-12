@@ -2,7 +2,7 @@ env:
 	git clean -xdf
 	npm install
 
-build:
+app:
 	rm -rf build
 	mkdir build
 	node_modules/.bin/webpack
