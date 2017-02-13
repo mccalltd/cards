@@ -1,16 +1,20 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
+
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
   output: {
-    filename: "app.js",
-    path: __dirname + "/build/scripts"
+    filename: 'index.js',
+    path: __dirname + '/build'
   },
 
   // Enable sourcemaps for debugging webpack's output.
-  devtool: "source-map",
+  devtool: 'source-map',
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
   },
 
   module: {
@@ -18,13 +22,13 @@ module.exports = {
       // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
       {
         test: /\.tsx?$/,
-        loader: "ts-loader"
+        loader: 'ts-loader'
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       {
         test: /\.js$/,
-        enforce: "pre",
-        loader: "source-map-loader"
+        enforce: 'pre',
+        loader: 'source-map-loader'
       }
     ]
   },
@@ -34,7 +38,19 @@ module.exports = {
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
   externals: {
-    "react": "React",
-    "react-dom": "ReactDOM"
-  }
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
+
+  plugins: [
+    new CleanWebpackPlugin(['build']),
+    new CopyWebpackPlugin([
+      { from: 'static/index.html' },
+      { from: 'node_modules/react/dist/react.js', to: 'vendor' },
+      { from: 'node_modules/react-dom/dist/react-dom.js', to: 'vendor' },
+    ]),
+    new WebpackShellPlugin({
+      onBuildEnd: ['sass static/styles/index.scss:build/index.css']
+    })
+  ]
 };
