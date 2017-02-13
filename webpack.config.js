@@ -49,8 +49,9 @@ module.exports = {
       { from: 'node_modules/react/dist/react.js', to: 'vendor' },
       { from: 'node_modules/react-dom/dist/react-dom.js', to: 'vendor' },
     ]),
+    // TODO: Include SCSS in watched files.
     new WebpackShellPlugin({
-      onBuildEnd: ['sass static/styles/index.scss:build/index.css']
+      onBuildExit: ['sass static/styles/index.scss:build/index.css']
     })
   ]
 };
